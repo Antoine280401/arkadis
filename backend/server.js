@@ -54,21 +54,22 @@ app.use((req, res, next) => {
   });
 
 
-const sgTransport = require('nodemailer-sendgrid-transport');
 
-const transporter = nodemailer.createTransport(
-    sgTransport({
-      auth: {
-        api_key: api_key
-      }
-    })
-  );
+const transporter = nodemailer.createTransport({
+  host: "smtp-api-arkadis-consulting.alwaysdata.net",
+  port: 587,
+  secure: false, 
+  auth: {
+    user: process.env.SMTP_EMAIL,
+    pass: process.env.SMTP_PASSWORD,
+  },
+});
   
 app.post('/api/contact', (req, res) => {
 const { name, email, tel, message } = req.body;
 
 const mailOptions = {
-    from: email_from,
+    from: process.env.SMTP_EMAIL,
     to: email_from,
     subject: '[Formulaire de contact] Nouveau message',
     text: `Bonjour, \n Un nouveau message provenant du formulaire de contact du site www.arkadis-consulting.delobbe.be vient d'arriver : \n Nom : ${name} \nEmail : ${email} \nNuméro de téléphone : ${tel} \nMessage : \n \n "${message}"`

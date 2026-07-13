@@ -187,5 +187,10 @@ nav .nav-link {
   width: 30px;
 }
 
+::selection {
+    background-color: rgba(46, 162, 144, 0.5);
+    color: black;
+}
+
 
 </style>
