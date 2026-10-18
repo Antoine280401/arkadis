@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="d-flex flex-column min-vh-100">
+  <div class="d-flex flex-column min-vh-100">
     <header class="bg-dark text-white py-3">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
         <div class="elt-links">
